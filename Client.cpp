@@ -1,6 +1,11 @@
 #include <iostream>
 #include "Client.hpp"
 
+Client::Client(){
+    m_nom = "";
+    m_numero = "";
+}
+
 Client::Client(const std::string &nom, std::string &numero)
 {
     m_nom = nom;
