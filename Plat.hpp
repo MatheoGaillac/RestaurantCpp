@@ -13,11 +13,11 @@ class Plat {
 
     public:
         Plat(const std::string&);
-        Plat(const std::string&, float, std::vector<std::string>&, bool);
+        Plat(const std::string&, float, const std::vector<std::string>&, bool);
 
         const std::string& getNom() const;
         float getPrix() const;
-        std::vector<std::string> getIngredients() const;
+        const std::vector<std::string> getIngredients() const;
         bool getDiponibilite() const;
 
         void setNom(const std::string&);

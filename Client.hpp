@@ -10,7 +10,7 @@ class Client{
 
     public:
         Client();
-        Client (const std::string& nom, std::string& numero);
+        Client (const std::string& nom, const std::string& numero);
 
         const std::string& getNom() const;
         const std::string& getNumero() const;

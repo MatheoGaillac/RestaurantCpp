@@ -9,7 +9,7 @@ Plat::Plat(const std::string &nom)
     m_disponible = false;
 }
 
-Plat::Plat(const std::string &nom, float prix, std::vector<std::string> &ingredients, bool disponible)
+Plat::Plat(const std::string &nom, float prix, const std::vector<std::string> &ingredients, bool disponible)
 {
     m_nom = nom;
     m_prix = prix;
@@ -19,7 +19,7 @@ Plat::Plat(const std::string &nom, float prix, std::vector<std::string> &ingredi
 
 const std::string &Plat::getNom() const { return m_nom; }
 float Plat::getPrix() const { return m_prix; }
-std::vector<std::string> Plat::getIngredients() const { return m_ingredients; }
+const std::vector<std::string> Plat::getIngredients() const { return m_ingredients; }
 bool Plat::getDiponibilite() const { return m_disponible; }
 
 void Plat::setNom(const std::string &nom)
@@ -44,11 +44,11 @@ void Plat::setDiponibilite(bool disponible)
 
 void Plat::afficherPlat() const
 {
-    std::cout << "Nom du plat : " << m_nom << std::endl;
-    std::cout << "\nPrix du plat : " << m_prix << std::endl;
-    std::cout << "\nIngredients : ";
+    std::cout << "\tNom du plat : " << m_nom << std::endl;
+    std::cout << "\tPrix du plat : " << m_prix << std::endl;
+    std::cout << "\tIngredients : ";
     for (const auto& ingredient : m_ingredients){
         std::cout << ingredient << ", ";
     }
-    std::cout << "\nDisponibilite" << (m_disponible ? "Oui" : "Non") << std::endl;
+    std::cout << "\n\tDisponibilite : " << (m_disponible ? "Oui\n" : "Non\n") << std::endl;
 }

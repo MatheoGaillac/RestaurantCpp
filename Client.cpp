@@ -6,7 +6,7 @@ Client::Client(){
     m_numero = "";
 }
 
-Client::Client(const std::string &nom, std::string &numero)
+Client::Client(const std::string &nom, const std::string &numero)
 {
     m_nom = nom;
     m_numero = numero;
@@ -28,5 +28,5 @@ void Client::setNumero(const std::string &numero)
 void Client::afficherDetails() const
 {
     std::cout << "Nom du client : " << m_nom << std::endl;
-    std::cout << "Numéro du client : " << m_numero << std::endl;
+    std::cout << "Numero du client : " << m_numero << std::endl;
 }
