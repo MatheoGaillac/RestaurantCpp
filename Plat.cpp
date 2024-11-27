@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Plat.h"
+#include "Plat.hpp"
 
 Plat::Plat(const std::string &nom)
 {
