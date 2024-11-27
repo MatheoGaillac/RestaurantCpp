@@ -48,7 +48,7 @@ void Plat::afficherPlat() const
     std::cout << "\nPrix du plat : " << m_prix << std::endl;
     std::cout << "\nIngredients : ";
     for (const auto& ingredient : m_ingredients){
-        std::cout << ingredient << " ,";
+        std::cout << ingredient << ", ";
     }
-    std::cout << "Disponibilite" << (m_disponible ? "Oui" : "Non") << std::endl;
+    std::cout << "\nDisponibilite" << (m_disponible ? "Oui" : "Non") << std::endl;
 }
