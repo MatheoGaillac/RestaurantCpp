@@ -23,6 +23,7 @@ void Commande::setNumeroCommande(int numeroCommande)
 void Commande::setPlatsCommandes(const std::vector<Plat*>& platsCommandes)
 {
     m_platsCommandes = platsCommandes;
+    calculerTotal();
 }
 
 void Commande::setTotal(float total)
@@ -55,6 +56,6 @@ void Commande::afficherCommande() const {
     for (const auto& plat: m_platsCommandes){
         plat->afficherPlat();
     }
-    std::cout << "Total : " << m_total << std::endl;
-    std::cout << "Statut : " << (m_estServie ? "Servie" : "En préparation") << std::endl;
+    std::cout << "Total : " << m_total << "euros" << std::endl;
+    std::cout << "Statut : " << (m_estServie ? "Servie" : "En preparation") << std::endl;
 }

@@ -1,35 +1,33 @@
 #include <iostream>
-#include "Plat.hpp"
 #include "Client.hpp"
+#include "ClientFidele.hpp"
+#include "Plat.hpp"
 #include "Commande.hpp"
 
 int main() {
-    // Creation d'un client
-    Client client1("Alice Dupont", "06 12 34 56 78");
+    Plat* plat1 = new Plat("Pizza Margherita", 15.0, {"tomates", "mozzarella", "basilic"}, true);
+    Plat* plat2 = new Plat("Spaghetti bolognaise", 15.0, {"pates", "sauce bolognaise", "parmesan"}, true);
 
-    // Creation de quelques plats
-    Plat plat1("Pizza Margherita", 12.5, {"tomates", "mozzarella", "basilic"}, true);
-    Plat plat2("Spaghetti Bolognaise", 15.0, {"pates", "sauce bolognaise", "parmesan"}, true);
-    Plat plat3("Tiramisu", 6.5, {"cafe", "mascarpone", "biscuit"}, true);
+    Client* client1 = new Client("Jean Dupuis", "06 11 22 33 44");
+    ClientFidele* clientFidele1 = new ClientFidele("Claire Bernard", "06 78 90 12 34", 10.5);
 
-    // Creation de la commande
-    Commande commande1(101, &client1);
+    Commande commande1(101, client1);
+    std::vector<Plat*> platsCommandes1 = {plat1, plat2};
+    commande1.setPlatsCommandes(platsCommandes1);
 
-    // Ajout des plats a la commande
-    commande1.addPlatsCommandes(&plat1);
-    commande1.addPlatsCommandes(&plat2);
-    commande1.addPlatsCommandes(&plat3);
+    Commande commande2(102, clientFidele1);
+    commande2.addPlatsCommandes(plat2);
 
-    // Affichage de la commande
-    std::cout << "=== Commande 1 ===" << std::endl;
+    std::cout << "=== Affichage de la commande 1 ===" << std::endl;
     commande1.afficherCommande();
 
-    // Modification du statut de la commande
-    commande1.setEstServie(true);
+    std::cout << "\n=== Affichage de la commande 2 ===" << std::endl;
+    commande2.afficherCommande();
 
-    // Affichage apres modification du statut
-    std::cout << "\n=== Commande 1 apres modification du statut ===" << std::endl;
-    commande1.afficherCommande();
+    delete plat1;
+    delete plat2;
+    delete client1;
+    delete clientFidele1;
 
     return 0;
 }

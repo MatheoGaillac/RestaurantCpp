@@ -18,5 +18,5 @@ void ClientFidele::setRemise(float remise)
 void ClientFidele::afficherDetails() const
 {
     Client::afficherDetails();
-    std::cout << "Remise accordée : " << m_remise << "%" << std::endl;
+    std::cout << "Remise accordee : " << m_remise << "%" << std::endl;
 }
