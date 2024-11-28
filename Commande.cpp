@@ -37,11 +37,13 @@ void Commande::setEstServie(bool estServie)
 }
 
 void Commande::calculerTotal(){
+    //Calcul du total de la commande sans remise
     m_total = 0;
     for (const auto& plat: m_platsCommandes){
         m_total += plat->getPrix();
     }
 
+    //Ajout de la remise au total, 0 si c'est un Client classique et sinon la valeur pour ClientFidele
     float remise = m_client->getRemise();
     m_total -= (m_total * remise / 100.0);
 }
@@ -60,5 +62,5 @@ void Commande::afficherCommande() const {
         plat->afficherPlat();
     }
     std::cout << "Total : " << m_total << "euros" << std::endl;
-    std::cout << "Statut : " << (m_estServie ? "Servie" : "En preparation") << std::endl;
+    std::cout << "Statut : " << (m_estServie ? "Servie" : "En preparation") << std::endl;//Ternaire pour afficher le statut
 }

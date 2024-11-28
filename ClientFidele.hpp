@@ -10,11 +10,11 @@ class ClientFidele : public Client{
 
     public:
         ClientFidele(const std::string& nom, const std::string& numero, float remise);
-
-        float getRemise() const override;
         
         void setRemise(float remise);
       
+        //Surchage des méthodes pour les modifier dans la sous-classe
+        float getRemise() const override;
         void afficherDetails() const override;
 };
 

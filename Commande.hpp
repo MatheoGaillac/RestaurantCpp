@@ -8,10 +8,10 @@
 class Commande{
     private:
         int m_numeroCommande;
-        std::vector<Plat*> m_platsCommandes;
+        std::vector<Plat*> m_platsCommandes; //Vecteur de la classe Plat afin d'éviter les copies inutiles
         float m_total;
         bool m_estServie;
-        Client* m_client;
+        Client* m_client; //Même raison que les plats
 
         void calculerTotal();
 
@@ -29,7 +29,7 @@ class Commande{
         void setTotal(float total);
         void setEstServie(bool estServie);
 
-        void addPlatsCommandes(Plat* plat);
+        void addPlatsCommandes(Plat* plat); //Différents du setter, ici c'est pour ajouter
         void afficherCommande() const;
 };
 

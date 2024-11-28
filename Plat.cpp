@@ -50,5 +50,5 @@ void Plat::afficherPlat() const
     for (const auto& ingredient : m_ingredients){
         std::cout << ingredient << ", ";
     }
-    std::cout << "\n\tDisponibilite : " << (m_disponible ? "Oui\n" : "Non\n") << std::endl;
+    std::cout << "\n\tDisponibilite : " << (m_disponible ? "Oui\n" : "Non\n") << std::endl;//Ternaire pour afficher la réponse
 }

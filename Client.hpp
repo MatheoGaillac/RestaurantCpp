@@ -18,8 +18,8 @@ class Client{
         void setNom(const std::string& nom);
         void setNumero(const std::string& numero);
 
-        virtual float getRemise() const;
-        virtual void afficherDetails() const;
+        //Méthodes virtuelles pour surcharger les méthodes  dans la sous-classe
+        virtual float getRemise() const; //Application d'une remise pour les clients fidèles puisque sinon il était compliqué de l'appliquer sachant que les clients de base n'ont pas de remise
+        virtual void afficherDetails() const; //Affichage de détails différents selon le type de client
 };
-
 #endif
