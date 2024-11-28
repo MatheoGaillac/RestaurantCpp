@@ -41,6 +41,9 @@ void Commande::calculerTotal(){
     for (const auto& plat: m_platsCommandes){
         m_total += plat->getPrix();
     }
+
+    float remise = m_client->getRemise();
+    m_total -= (m_total * remise / 100.0);
 }
 
 void Commande::addPlatsCommandes(Plat* plat)

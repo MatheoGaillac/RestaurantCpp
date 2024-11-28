@@ -14,6 +14,7 @@ Client::Client(const std::string &nom, const std::string &numero)
 
 const std::string &Client::getNom() const { return m_nom; }
 const std::string &Client::getNumero() const { return m_numero; }
+float Client::getRemise() const { return 0.0; }
 
 void Client::setNom(const std::string &nom)
 {

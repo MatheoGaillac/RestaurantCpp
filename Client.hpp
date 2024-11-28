@@ -18,6 +18,7 @@ class Client{
         void setNom(const std::string& nom);
         void setNumero(const std::string& numero);
 
+        virtual float getRemise() const;
         virtual void afficherDetails() const;
 };
 
