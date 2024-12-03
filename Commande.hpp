@@ -28,6 +28,7 @@ class Commande{
         void setPlatsCommandes(const std::vector<Plat*>& platsCommandes);
         void setTotal(float total);
         void setEstServie(bool estServie);
+        void setClient(Client* client);
 
         void addPlatsCommandes(Plat* plat); //Différents du setter, ici c'est pour ajouter
         void afficherCommande() const;

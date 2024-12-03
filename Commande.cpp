@@ -38,6 +38,10 @@ void Commande::setEstServie(bool estServie)
     m_estServie = estServie;
 }
 
+void Commande::setClient(Client* client){
+    m_client = client;
+}
+
 void Commande::calculerTotal(){
     //Calcul du total de la commande sans remise
     m_total = 0;
