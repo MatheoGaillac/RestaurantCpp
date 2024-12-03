@@ -1,0 +1,4 @@
+Nom,Prix,Ingredients,Disponibilites
+Pizza Margherita,15.0,tomates;mozzarella;basilic,TRUE
+Spaghetti Bolognaise,13.5,pates;sauce bolognaise;parmesan,TRUE
+Salade Cesar,10,salade;croutons;poulet;parmesan,FALSE

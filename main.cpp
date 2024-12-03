@@ -1,12 +1,14 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <cassert>
 #include "Client.hpp"
 #include "ClientFidele.hpp"
 #include "Plat.hpp"
 #include "Commande.hpp"
 
-int main() {
+int main()
+{
     // //Création d'objet pour manipuler les différentes fonctionnalités du programme
     // Plat* plat1 = new Plat("Pizza Margherita", 15.0, {"tomates", "mozzarella", "basilic"}, true);
     // Plat* plat2 = new Plat("Spaghetti bolognaise", 15.0, {"pates", "sauce bolognaise", "parmesan"}, true);
@@ -33,23 +35,46 @@ int main() {
     // delete client1;
     // delete clientFidele1;
 
-    //Utilisation du programme par lecture d'un fichier texte (Liste des plats) puis création d'un fichier texte pour chaque commande
-    Client* client1 = new Client("Jean Dupuis", "06 11 22 33 44");
-    ClientFidele* clientFidele1 = new ClientFidele("Claire Bernard", "06 78 90 12 34", 10);
+    // Utilisation du programme par lecture d'un fichier csv (Liste des plats) puis création d'un fichier texte pour chaque commande
+    Client *client1 = new Client("Jean Dupuis", "06 11 22 33 44");
+    ClientFidele *clientFidele1 = new ClientFidele("Claire Bernard", "06 78 90 12 34", 10);
 
-    std::vector<std::string> listePlats;
-    std::string str;
+    std::ifstream fichier("Plats.csv");
+    std::string ligne, nom, ingredient, disponibilite;
+    std::vector<std::string> ingredients;
+    double prix;
 
-    std::ifstream read_file("Plats.txt");
-    assert(read_file.is_open());
+    assert(fichier.is_open() && "Impossible d'ouvrir le fichier");
 
-    while (getline(read_file, str)){
-        listePlats.push_back(str);
+    std::getline(fichier, ligne);
+
+    while (std::getline(fichier, ligne))
+    {
+        std::istringstream iss(ligne);
+        ingredients.clear();
+        std::getline(iss, nom, ',');
+        iss >> prix;
+        iss.ignore();
+        
+        std::string ingredientStr;
+        std::getline(iss, ingredientStr, ',');
+        std::istringstream issIngredients(ingredientStr);
+        while (std::getline(issIngredients, ingredient, ';')){
+            ingredients.push_back(ingredient);
+        }
+
+        std::getline(iss, disponibilite);
+
+        std::cout << "Nom: " << nom << std::endl;
+        std::cout << "Prix: " << prix << " euros" << std::endl;
+                std::cout << "Ingredients: ";
+        for (const auto& ing : ingredients) {
+            std::cout << ing << ", ";
+        }
+        std::cout << std::endl;
+        std::cout << "Disponible: " << (disponibilite == "TRUE" ? "Oui" : "Non") << std::endl;
     }
-
-    for (const auto& plat: listePlats){
-        std::cout << plat << "\n";
-    }
+    fichier.close();
 
     return 0;
 }
