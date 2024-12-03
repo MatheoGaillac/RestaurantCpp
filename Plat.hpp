@@ -28,4 +28,7 @@ class Plat {
         void afficherPlat() const;
 };
 
+bool operator==(Plat p1, Plat p2);
+bool operator>(Plat p1, Plat p2);
+
 #endif

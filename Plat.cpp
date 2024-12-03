@@ -52,3 +52,13 @@ void Plat::afficherPlat() const
     }
     std::cout << "\n\tDisponibilite : " << (m_disponible ? "Oui\n" : "Non\n") << std::endl;//Ternaire pour afficher la réponse
 }
+
+bool operator==(Plat p1, Plat p2)
+{
+    return (p1.getPrix() == p2.getPrix());
+}
+
+bool operator>(Plat p1, Plat p2)
+{
+    return (p1.getPrix() > p2.getPrix());
+}
