@@ -1,0 +1,7 @@
+Numero de la commande : 101
+Client : Jean Dupuis (06 11 22 33 44)
+Plats commandes :
+	Nom : Pizza Margherita
+	Disponibilite : Oui
+Total : 15 euros
+Statut : En preparation

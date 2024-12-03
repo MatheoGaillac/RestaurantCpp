@@ -76,8 +76,25 @@ int main()
     // Utilisation du programme pour lire un csv et créer des objets Plats
     std::vector<Plat*> plats = readCSVPlats("Plats.csv");
 
+    // Création d'un fichier texte pour chaque commande passée
     Client *client1 = new Client("Jean Dupuis", "06 11 22 33 44");
     ClientFidele *clientFidele1 = new ClientFidele("Claire Bernard", "06 78 90 12 34", 10);
+
+    Commande commande1(101, client1);
+    commande1.addPlatsCommandes(plats[0]);
+    
+    Commande commande2(102, clientFidele1);
+    commande2.addPlatsCommandes(plats[1]);
+    commande2.addPlatsCommandes(plats[2]);
+
+    commande1.sauvegarderDansFichier("Commande_101.txt");
+    commande2.sauvegarderDansFichier("Commande_102.txt");
+
+    for (auto& plat : plats) {
+        delete plat;
+    }
+    delete client1;
+    delete clientFidele1;
 
     return 0;
 }

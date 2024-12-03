@@ -31,6 +31,7 @@ class Commande{
 
         void addPlatsCommandes(Plat* plat); //Différents du setter, ici c'est pour ajouter
         void afficherCommande() const;
+        void sauvegarderDansFichier(const std::string& nomFichier) const;
 };
 
 #endif

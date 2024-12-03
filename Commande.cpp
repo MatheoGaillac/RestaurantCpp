@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <cassert>
 #include "Commande.hpp"
 
 Commande::Commande(int numeroCommande, Client* client)
@@ -63,4 +65,21 @@ void Commande::afficherCommande() const {
     }
     std::cout << "Total : " << m_total << "euros" << std::endl;
     std::cout << "Statut : " << (m_estServie ? "Servie" : "En preparation") << std::endl;//Ternaire pour afficher le statut
+}
+
+void Commande::sauvegarderDansFichier(const std::string& nomFichier) const {
+    std::ofstream fichier(nomFichier);
+    assert(fichier.is_open());
+
+    fichier << "Numero de la commande : " << m_numeroCommande << std::endl;
+    fichier << "Client : " << m_client->getNom() << " (" << m_client->getNumero() << ")" << std::endl;
+    fichier << "Plats commandes :" << std::endl;
+    for (const auto& plat : m_platsCommandes) {
+        fichier << "\tNom : " << plat->getNom() << std::endl;
+        fichier << "\tDisponibilite : " << (plat->getDiponibilite() ? "Oui" : "Non") << std::endl;
+    }
+    fichier << "Total : " << m_total << " euros" << std::endl;
+    fichier << "Statut : " << (m_estServie ? "Servie" : "En preparation") << std::endl;
+
+    fichier.close();
 }

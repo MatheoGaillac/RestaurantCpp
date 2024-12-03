@@ -1,0 +1,9 @@
+Numero de la commande : 102
+Client : Claire Bernard (06 78 90 12 34)
+Plats commandes :
+	Nom : Spaghetti Bolognaise
+	Disponibilite : Oui
+	Nom : Salade Cesar
+	Disponibilite : Non
+Total : 21.15 euros
+Statut : En preparation
