@@ -63,6 +63,7 @@ void Commande::afficherCommande() const {
     for (const auto& plat: m_platsCommandes){
         plat->afficherPlat();
     }
+    std::cout << "Montant remise : " << m_client->getRemise() << "%" << std::endl;
     std::cout << "Total : " << m_total << "euros" << std::endl;
     std::cout << "Statut : " << (m_estServie ? "Servie" : "En preparation") << std::endl;//Ternaire pour afficher le statut
 }
@@ -78,6 +79,7 @@ void Commande::sauvegarderDansFichier(const std::string& nomFichier) const {
         fichier << "\tNom : " << plat->getNom() << std::endl;
         fichier << "\tDisponibilite : " << (plat->getDiponibilite() ? "Oui" : "Non") << std::endl;
     }
+    fichier << "Montant remise : " << m_client->getRemise() << "%" << std::endl;
     fichier << "Total : " << m_total << " euros" << std::endl;
     fichier << "Statut : " << (m_estServie ? "Servie" : "En preparation") << std::endl;
 

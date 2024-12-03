@@ -94,7 +94,7 @@ int main()
         delete plat;
     }
     delete client1;
-    delete clientFidele1;
+    delete clientFidele1; 
 
     return 0;
 }
