@@ -67,9 +67,6 @@ int main()
     std::cout << "\n=== Affichage de la commande 2 ===" << std::endl;
     commande2.afficherCommande();
 
-    std::cout << plat1->getNom() << std::endl;
-    std::cout << plat2->getNom() << std::endl;
-
     if (*plat1 == *plat2){
         std::cout << "Le prix de " << plat1->getNom() << " est egal au prix de " << plat2->getNom() << std::endl;
     } else if (*plat1 > *plat2){
